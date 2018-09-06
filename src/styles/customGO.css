@@ -1,0 +1,257 @@
+
+/*@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Raleway:500,600,700);*/
+
+/* --------------------------------------
+=========================================
+GLOBAL STYLES
+=========================================
+-----------------------------------------*/
+html {
+	font-size: 100%;
+}
+
+body {
+	background: #ffffff;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	color: #727272;
+	line-height: 25px;
+	text-align: center;
+	overflow-x: hidden !important;
+	margin: auto !important;
+}
+
+/* PRE LOADER */
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fefefe;
+	z-index: 99999;
+	height: 100%;
+	width: 100%;
+	overflow: hidden !important;
+}
+
+.status {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-image: url(../assets/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	margin: -20px 0 0 -20px;
+}
+
+
+/* IE10 IN WINDOWS 8 AND WINDOWS PHONE 8 BUG FIX FOR BOOTSTRAP */
+
+@-ms-viewport {
+	width: device-width;
+}
+
+@-o-viewport {
+	width: device-width;
+}
+
+@viewport {
+	width: device-width;
+}
+
+/* --------------------------------------
+=========================================
+   COMPONENTS 
+=========================================
+-----------------------------------------*/
+.dark-bg {
+	background: #323232;
+	color: #ffffff;
+}
+
+.color-bg {
+	color: #ffffff;
+}
+
+.bgcolor-2 {
+	background: #f7f8fa;
+}
+
+.bgcolor-white {
+	background: #ffffff;
+}
+
+.colored-line {
+	height: 1px;
+	width: 70px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+/*---------------------------------------
+   Typography                
+-----------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Raleway', sans-serif;
+	color: #323232;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+h1 {
+	font-size: 2.813rem;
+	line-height: 3.75rem;
+	font-weight: 500;
+}
+
+h2 {
+	font-size: 2.188rem;
+	line-height: 3.125rem;
+	font-weight: 500;
+}
+
+h3 {
+	font-size: 1.5rem;
+	line-height: 2.375rem;
+	font-weight: 600;
+}
+
+h4 {
+	font-size: 1.25rem;
+	line-height: 2rem;
+	font-weight: 600;
+}
+
+h5 {
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 700;
+}
+
+h6 {
+	font-size: 16px;
+	line-height: 25px;
+	font-weight: 700;
+}
+
+/*---------------------------------------
+   SCREENSHOT SECTION          
+-----------------------------------------*/
+.screenshots {
+	margin-top: 68px;
+}
+
+.shot {
+	margin: 10px;
+	border-radius: 3px;
+	border: 5px solid #ffffff;
+}
+
+.shot img {
+	max-width: 100%;
+	width: 100%;
+}
+
+.shot img:hover {
+	cursor: crosshair;
+	opacity: 0.8;
+}
+
+
+/*---------------------------------------
+   HEADER / HOME                
+-----------------------------------------*/
+header {
+	background: url(../assets/bg-image-1.jpg) no-repeat center top fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+header .vertical-registration-form {
+	margin-top: 60px;
+}
+
+header .home-screenshot {
+    margin-top: 70px;
+}
+
+.navigation-header {
+	padding-top: 47px;
+	padding-bottom: 30px;
+}
+
+.intro-section {
+	margin-top: 65px;
+	margin-bottom: 137px;
+}
+
+
+.intro {
+	color: #ffffff;
+}
+
+.intro-section .sub-heading {
+    color: #ffffff;
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.button-container {
+    margin-top: 40px;
+    margin-bottom: 25px;
+    margin-left: -71px;
+}
+
+.button-container .standard-button {
+    margin-left: 0;
+}
+
+.navbar-header img {
+	max-height: 26px;
+}
+
+/*---------------------------------------
+   FOOTER SECTION          
+-----------------------------------------*/
+footer {
+	padding-top: 22px;
+	padding-bottom: 10px;
+}
+
+.footer-logo {
+	max-width: 400px;
+	font-size: 14px;
+	margin: auto;
+}
+
+.copyright {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.social-icons li {
+	display: inline;
+	margin: 2px;
+}
+
+.social-icons li a {
+	font-size: 25px;
+	color: #919191;
+}
+
+.social-icons li a:hover {
+	text-decoration: none;
+}
