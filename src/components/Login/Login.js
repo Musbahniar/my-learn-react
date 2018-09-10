@@ -3,6 +3,8 @@ import { Button, Form, FormGroup, Label } from 'reactstrap';
 import {Redirect} from 'react-router-dom';
 import {PostData} from '../../services/PostData';
 import Header from '../../components/Header/Header';
+import '../../styles/react-confirm-alert.css';
+import { confirmAlert } from 'react-confirm-alert'; 
 
 class Login extends Component {
 
@@ -32,6 +34,13 @@ class Login extends Component {
           }
           else
           {
+            confirmAlert({
+              title: '',                        
+              message: 'Email dan Password tidak Terdaftar !!!',               
+              childrenElement: () => '',                              
+              cancelLabel: 'OKE',                               
+              Cancel: () => '',      
+            })
             console.log('tidak ada');
           }
         });

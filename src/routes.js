@@ -7,8 +7,10 @@ import Home from '././components/Home/Home';
 import Login from '././components/Login/Login';
 import Signup from '././components/Signup/Signup';
 
+import Vtutor from '././components/Vtutor/Vtutor';
 import Vak from '././components/Akademik/Vak';
 import Cbt from '././components/Akademik/Cbt';
+import Cbtdetail from '././components/Akademik/Cbtdetail';
 
 import NotFound from '././components/NotFound/NotFound';
 
@@ -23,6 +25,8 @@ const Routes = () => (
           <Route path="/signup" component={Signup} />
           <Route path="/vak" component={Vak} />
           <Route path="/cbt" component={Cbt} />
+          <Route path="/tutor" component={Vtutor} />
+          <Route path="/dcbt" component={Cbtdetail} />
           <Route path="*" component={NotFound}/> */}
       </Switch>
   </BrowserRouter>

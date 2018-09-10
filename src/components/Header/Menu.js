@@ -69,6 +69,7 @@ class Menu extends Component {
               </ButtonDropdown>
               <a className="navbar-brand" href="/presensi">Presensi</a>
               <a className="navbar-brand" href="/cbt">CBT</a>
+              <a className="navbar-brand" href="/tutor">Video Tutor</a>
               <a className="navbar-brand" href="" onClick={this.logout}><Button color="danger">LogOut</Button></a>
             </Nav>
         </Collapse>
