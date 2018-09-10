@@ -51,6 +51,7 @@ class Vak extends React.Component {
         const infoData = this.state.data;
         const detailData = this.state.detailvak;
         if(infoData !== '')
+        // if(infoData.length > 0)
         {
             return (
                 <div>

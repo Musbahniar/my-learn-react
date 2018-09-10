@@ -25,8 +25,8 @@ const Routes = () => (
           <Route path="/signup" component={Signup} />
           <Route path="/vak" component={Vak} />
           <Route path="/cbt" component={Cbt} />
+          <Route path="/dcbt/:pola/:periode" component={Cbtdetail} />
           <Route path="/tutor" component={Vtutor} />
-          <Route path="/dcbt" component={Cbtdetail} />
           <Route path="*" component={NotFound}/> */}
       </Switch>
   </BrowserRouter>
