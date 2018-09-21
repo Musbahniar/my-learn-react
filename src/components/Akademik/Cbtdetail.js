@@ -1,7 +1,6 @@
 import React from 'react';
 import Menu from '../../components/Header/Menu';
 import {Redirect} from 'react-router-dom';
-import { Table } from 'reactstrap';
 import { GetData } from '../../services/GetData';
 
 class Cbtdetail extends React.Component {
@@ -60,7 +59,8 @@ class Cbtdetail extends React.Component {
               <br />
               <h2 align="center">GOLearn <font color="red">Nilai TO CBT</font></h2>
               <br />
-                <Table size="sm">
+              <div className="table-responsive-sm">
+                <table className="table">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -74,7 +74,8 @@ class Cbtdetail extends React.Component {
                 <tbody>
                   {rows}
                 </tbody>
-		            </Table>
+		            </table>
+              </div>
             </div>
           </div>
         );

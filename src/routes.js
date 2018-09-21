@@ -11,6 +11,8 @@ import Vtutor from '././components/Vtutor/Vtutor';
 import Vak from '././components/Akademik/Vak';
 import Cbt from '././components/Akademik/Cbt';
 import Cbtdetail from '././components/Akademik/Cbtdetail';
+import Kuis from '././components/Akademik/Kuis';
+import Presensi from '././components/Akademik/Presensi';
 
 import NotFound from '././components/NotFound/NotFound';
 
@@ -26,6 +28,8 @@ const Routes = () => (
           <Route path="/vak" component={Vak} />
           <Route path="/cbt" component={Cbt} />
           <Route path="/dcbt/:pola/:periode" component={Cbtdetail} />
+          <Route path="/kuis" component={Kuis} />
+          <Route path="/presensi" component={Presensi} />
           <Route path="/tutor" component={Vtutor} />
           <Route path="*" component={NotFound}/> */}
       </Switch>

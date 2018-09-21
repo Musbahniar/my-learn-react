@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {PostData} from '../../services/PostData';
 import {Redirect} from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import { Button, Form, FormGroup, Label, Alert, Tooltip  } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Alert, Tooltip } from 'reactstrap';
+// import DateTimePicker from 'react-datetime-picker';
 import './Signup.css';
 import '../../styles/react-confirm-alert.css';
 import { confirmAlert } from 'react-confirm-alert'; 
@@ -23,7 +24,12 @@ class RegisForm extends Component {
      infoAPI: '',
      visible: false,
      pesan: '',
-     loading: 'blank'
+     loading: 'blank',
+     date: new Date()
+    //  date: "1990-06-05",
+    //   format: "YYYY-MM-DD",
+    //   inputFormat: "DD/MM/YYYY",
+    //   mode: "date"
     };
 
     this.toggle = this.toggle.bind(this);
@@ -31,6 +37,8 @@ class RegisForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.onDismiss = this.onDismiss.bind(this);
   }
+
+  onChange = date => this.setState({ date })
 
   toggle(){
     this.setState ({
@@ -48,7 +56,6 @@ class RegisForm extends Component {
     // this.setState({loading: 'bars'});
     if (!this.showFormErrors())
     {
-
       console.log('invalid');
     }
     else
@@ -146,7 +153,8 @@ class RegisForm extends Component {
     if(sessionStorage.getItem('userData')){
       return (<Redirect to={'/home'}/>)
     }
-    
+    const {date, format, mode, inputFormat} = this.state;
+
     return (
     <Form>
     <div className="col-md-6 col-md-offset-3">
@@ -181,18 +189,7 @@ class RegisForm extends Component {
 
       <FormGroup>
         <Label id="tgllahirLabel"><strong>Tanggal Lahir</strong></Label>
-        <input className="form-control"
-          type="text"
-          name="tgllahir"
-          id="tgllahir"
-          ref="tgllahir"
-          value={ this.state.tgllahir } 
-          onChange={ this.handleChange }
-          required />
-          <Tooltip placement="right" isOpen={this.state.tooltipOpen} target="tgllahir" toggle={this.toggle}>
-            Format Tanggal Lahir <br />(yyyy-mm-dd)
-          </Tooltip>
-        <div className="error" id="tgllahirError" />
+
       </FormGroup>
 
       <FormGroup>

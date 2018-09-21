@@ -1,5 +1,4 @@
 import React from 'react';
-import { Table } from 'reactstrap';
 import Cbtrow from '../../components/Akademik/Cbtrow';
 
 class Cbttabel extends React.Component {
@@ -15,8 +14,8 @@ class Cbttabel extends React.Component {
         })
 
         return (
-          <div>
-            <Table size="sm">
+          <div className="table-responsive-sm">
+            <table className="table">
               <thead>
               <tr>
               <th>#</th>
@@ -28,7 +27,7 @@ class Cbttabel extends React.Component {
               <tbody>
                 {rows}
               </tbody>
-		    </Table>
+		    </table>
           </div>
         );
     }

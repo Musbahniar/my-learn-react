@@ -16,6 +16,9 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    document.title = "GOlearn";
+  }
 
   render() {
     return (
