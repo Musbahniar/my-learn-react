@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import pic1 from '../../assets/1.png';
 import Header from '../../components/Header/Header';
+import Kartu from '../../components/Welcome/Kartu';
 
 class Welcome extends Component {
   render() {
@@ -29,6 +30,9 @@ class Welcome extends Component {
             </div>
         </div>
       </header>
+       <br/>
+        <Kartu />
+        <br />
       </div>
     );
   }
