@@ -5,6 +5,7 @@ import {PostData} from '../../services/PostData';
 import Header from '../../components/Header/Header';
 import '../../styles/react-confirm-alert.css';
 import { confirmAlert } from 'react-confirm-alert'; 
+import Kontak from '../../components/Kontak/Kontak';
 
 class Login extends Component {
 
@@ -15,7 +16,8 @@ class Login extends Component {
     siapa: 'SISWA',
     email: '',
     password: '',
-    redirectToReferrer: false
+    redirectToReferrer: false,
+    loading: true
     };
 
     this.login = this.login.bind(this);
@@ -47,6 +49,13 @@ class Login extends Component {
       }
       else
       {
+        confirmAlert({
+          title: '',                        
+          message: 'Email dan Password Wajib Diisi !!!',               
+          childrenElement: () => '',                              
+          cancelLabel: 'OKE',                               
+          Cancel: () => '',      
+        })
         console.log('invalid');
       }
   }
@@ -110,7 +119,9 @@ class Login extends Component {
 
         <Button onClick={this.login}>Login</Button>
         <hr/>
-  
+        <Kontak timeRemainingInSeconds={10}
+ onEveryMinute={1}
+ />
         <div className="checkbox">
           <label>
           <em><a href="/signup">Belum Registrasi</a> - <a href="/">Lupa Password</a></em>

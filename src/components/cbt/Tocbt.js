@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Menu from '../../components/Header/Menu';
 import {Redirect} from 'react-router-dom';
 import { GetData } from '../../services/GetData';
-import Button from 'reactstrap/lib/Button';
+import { Card, Button, CardHeader,  CardBody } from 'reactstrap';
 
 export default class Tocbt extends Component {
     constructor () {
@@ -77,13 +77,18 @@ render() {
             </div>
                 </div>
                 <div className="col-md-4 ml-auto">
-                    <h5>Tata Tertib Pelaksanaan Tryout CBT :</h5>
+                <Card>
+                    <CardHeader>Tata Tertib Pelaksanaan Tryout CBT</CardHeader>
+                     <CardBody>
                     <ul>
                         <li>Peserta mengecek kesesuaian identitas yang tampil di layar monitor</li>
                         <li>Mulai mengerjakan soal setelah mengklik "Mulai TO" pada kolom Tryout.</li>
                         <li>Menjawab butir soal dengan cara memilih/mengklik NoSoal dan Option Jawaban menggunakan mouse.</li>
                         <li>Peserta dapat mengubah pilihan jawaban dengan cara memilih/mengklik pilihan jawaban lain yang dianggap benar.Jawaban peserta otomatis akan terganti dengan pilihan jawaban yang terakhir.</li>
                     </ul>
+                    </CardBody>
+                </Card>    
+                <br />
                 </div>
             </div>
         </div>

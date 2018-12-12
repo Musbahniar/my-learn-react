@@ -15,6 +15,8 @@ import Kuis from '././components/Akademik/Kuis';
 import Presensi from '././components/Akademik/Presensi';
 import ToCbt from '././components/cbt/Tocbt';
 
+import Kontak from '././components/Kontak/Kontak';
+
 import NotFound from '././components/NotFound/NotFound';
 
 
@@ -24,6 +26,7 @@ const Routes = () => (
           <Route exact path="/" component={Welcome} />
           <Route path="/home" component={Home}/>
           <Route path="/info" component={Info} />
+          <Route path="/kontak" component={Kontak} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/vak" component={Vak} />
