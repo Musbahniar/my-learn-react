@@ -41,6 +41,7 @@ class Menu extends Component {
     sessionStorage.setItem("userData",'');
     sessionStorage.clear();
     this.setState({redirectToReferrer: true});
+    return (<Redirect to={'/'}/>)
   }
 
   render() {
@@ -67,7 +68,7 @@ class Menu extends Component {
 
               </ButtonDropdown>
               <a className="navbar-brand" href="/presensi">Presensi</a>
-              <a className="navbar-brand" href="/cbt">CBT</a>
+              <a className="navbar-brand" href="/tocbt">CBT</a>
               <a className="navbar-brand" href="/tutor">Video Tutor</a>
               <a className="navbar-brand" href="" onClick={this.logout}><Button color="danger">LogOut</Button></a>
             </Nav>

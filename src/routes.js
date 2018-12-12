@@ -13,6 +13,7 @@ import Cbt from '././components/Akademik/Cbt';
 import Cbtdetail from '././components/Akademik/Cbtdetail';
 import Kuis from '././components/Akademik/Kuis';
 import Presensi from '././components/Akademik/Presensi';
+import ToCbt from '././components/cbt/Tocbt';
 
 import NotFound from '././components/NotFound/NotFound';
 
@@ -27,6 +28,7 @@ const Routes = () => (
           <Route path="/signup" component={Signup} />
           <Route path="/vak" component={Vak} />
           <Route path="/cbt" component={Cbt} />
+          <Route path="/tocbt" component={ToCbt} />
           <Route path="/dcbt/:pola/:periode" component={Cbtdetail} />
           <Route path="/kuis" component={Kuis} />
           <Route path="/presensi" component={Presensi} />
