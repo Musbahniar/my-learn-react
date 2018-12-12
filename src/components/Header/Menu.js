@@ -65,7 +65,6 @@ class Menu extends Component {
                   <a href="/kuis"><DropdownItem>Nilai Kuis</DropdownItem></a>
                 </DropdownMenu>
 
-   
               </ButtonDropdown>
               <a className="navbar-brand" href="/presensi">Presensi</a>
               <a className="navbar-brand" href="/cbt">CBT</a>

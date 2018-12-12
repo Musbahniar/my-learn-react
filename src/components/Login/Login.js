@@ -10,12 +10,12 @@ class Login extends Component {
 
   constructor(props){
     super(props);
-   
+  
     this.state = {
-     siapa: 'SISWA',
-     email: '',
-     password: '',
-     redirectToReferrer: false
+    siapa: 'SISWA',
+    email: '',
+    password: '',
+    redirectToReferrer: false
     };
 
     this.login = this.login.bind(this);
@@ -53,7 +53,7 @@ class Login extends Component {
 
   handleChange(e){
     this.setState({[e.target.name]:e.target.value});
-   }
+  }
 
   render() {
     if (this.state.redirectToReferrer) {

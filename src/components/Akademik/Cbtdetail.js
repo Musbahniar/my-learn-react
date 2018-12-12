@@ -47,7 +47,7 @@ class Cbtdetail extends React.Component {
             <td align="center">{obj.Benar}</td>
             <td align="center">{obj.Salah}</td>
             <td align="center">{obj.Kosong}</td>
-            <td align="center">{this.props.match.params.pola==='UN' || this.props.match.params.pola==='ULUM' ? obj.NILAI : obj.PG}</td>
+            <td align="center">{this.props.match.params.pola==='UN' || this.props.match.params.pola==='ULUM' ? Number(obj.NILAI).toFixed(2): Number(obj.PG).toFixed(2)}</td>
           </tr>
         );
     })
