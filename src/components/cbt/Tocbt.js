@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Menu from '../../components/Header/Menu';
-import {Redirect} from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { GetData } from '../../services/GetData';
 import { Card, Button, CardHeader,  CardBody } from 'reactstrap';
 
@@ -58,20 +58,20 @@ render() {
                         </tr>
                     </thead>
                     <tbody>
-                      {
-                          this.state.data.map ((datas, key)=> {
+                    {
+                        this.state.data.map ((datas, key)=> {
                             return (
                                 <tr>
                                     <th>{key + 1}</th>
                                     <td>{datas.cPola}</td>
                                     <td>{datas.cKodeSoal}</td>
                                     <td>{datas.cBatasWaktu} Menit</td>
-                                    <td><Button outline color="danger" size="sm">Mulai TO</Button></td>
+                                    <td><a href="/tryout">Mulai TO</a></td>
                                     <td></td>
                                 </tr>
                             )
-                          })
-                      }
+                        })
+                    }
                     </tbody>
 		        </table>
             </div>
@@ -79,7 +79,7 @@ render() {
                 <div className="col-md-4 ml-auto">
                 <Card>
                     <CardHeader>Tata Tertib Pelaksanaan Tryout CBT</CardHeader>
-                     <CardBody>
+                    <CardBody>
                     <ul>
                         <li>Peserta mengecek kesesuaian identitas yang tampil di layar monitor</li>
                         <li>Mulai mengerjakan soal setelah mengklik "Mulai TO" pada kolom Tryout.</li>

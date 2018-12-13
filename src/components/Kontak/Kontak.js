@@ -1,90 +1,90 @@
-import React, {Component} from 'react';
-import { Row, Col } from 'reactstrap';
+import React,{Component} from 'react';
 
-export default class Kontak extends Component {
-    constructor(props){
-      super(props);
-      this.state = {
-        remainingMinutes: 0,
-        remainingSeconds: 0
-      };
+const formatValues = ({days,hours,minutes,seconds}) =>
+{
+    const hourString = ('1' + hours).slice(-2);
+    const minString = ('1'+ minutes).slice(-2);
+    const secString = ('0' + seconds).slice(-2);
+    return (days + ':' + hourString + ':' + minString + ':' + secString);
+}
+
+class Kontak extends Component
+{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            endDate:this.props.endDate,
+            countdown:'0:00:00:00',
+            secondRemaining:0,
+            id:0
+        }
+        this.initializeCountdown = this.initializeCountdown.bind(this);
+        this.tick = this.tick.bind(this);
     }
 
-    updateRemainMinutesAndSeconds(timeRemainingInSeconds){
-        let remainingMinutes = Math.floor(timeRemainingInSeconds/60);
-        let remainingSeconds = timeRemainingInSeconds % 60;
-        this.setState({
-          remainingMinutes,
-          remainingSeconds
-        });
-      }
-    
-      countDown(timeRemainingInSeconds,shouldSkipCallback){
-        this.setState({
-          timeRemainingInSeconds
-        });
-        if (!shouldSkipCallback && timeRemainingInSeconds % 60 === 0) {
-          this.props.onEveryMinute(1);
+    componentDidUpdate(prevProps, prevState)
+    {
+        if(this.props.endDate !== prevProps.endDate)
+        {
+            clearInterval(prevState.id);
+            this.setState({endDate:this.props.endDate});
+            this.initializeCountdown();
         }
-        if (timeRemainingInSeconds === 0){
-          this.props.onCompletion();
-        }
-        localStorage.setItem('timeRemainingInSeconds',timeRemainingInSeconds);
-        if(timeRemainingInSeconds > 0){
-          this.updateRemainMinutesAndSeconds(timeRemainingInSeconds);
-          timeRemainingInSeconds = timeRemainingInSeconds-1;
-          this.setTimeoutId = setTimeout(this.countDown.bind(this,timeRemainingInSeconds, false), 1000);
-        }
-      }
-    
-      compareServerTimeAndComponentTimeAndUpdateServer(serverSideTimeRemainingInSeconds){
-        let componentTimeRemainingInSeconds = localStorage.getItem('timeRemainingInSeconds');
-        if(componentTimeRemainingInSeconds && componentTimeRemainingInSeconds < serverSideTimeRemainingInSeconds) {
-          let differenceInMinutes = Math.floor((serverSideTimeRemainingInSeconds - componentTimeRemainingInSeconds)/60)
-          if(differenceInMinutes>0){
-            this.props.onEveryMinute(differenceInMinutes)
-          }
-          return componentTimeRemainingInSeconds;
-        }
-        return serverSideTimeRemainingInSeconds;
-      }
-    
-      componentWillReceiveProps(nextProps){
-        if(this.props.timeRemainingInSeconds !== nextProps.timeRemainingInSeconds){
-          let timeRemainingInSeconds = this.compareServerTimeAndComponentTimeAndUpdateServer(nextProps.timeRemainingInSeconds);
-          this.countDown(timeRemainingInSeconds,true);
-        }
-      }
-    
-      componentWillUnmount(){
-        clearTimeout(this.setTimeoutId);
-      }
-    
-      render(){
-        return (
-          <div className='timer'>
-              <div>
-              <Row>
-                <Col>
-              <div className='font-weight-bold lead number-display'>
-                {
-                  this.state.remainingMinutes>9?
-                  this.state.remainingMinutes:'0'+this.state.remainingMinutes
-                }:{
-                  this.state.remainingSeconds>9?
-                  this.state.remainingSeconds:'0'+this.state.remainingSeconds
-                }
-              </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <div className='info'>remaining</div>
-                </Col>
-              </Row>
-              </div>
-    
-          </div>
-        )
-      }
     }
+
+    componentDidMount()
+    {
+        this.initializeCountdown();
+    }
+
+    tick() {
+        const values = this.getTimeRemaining(this.state.endDate);
+        this.setState({countdown:formatValues(values),secondRemaining:values.secondsLeft});
+        if(values.secondsLeft <= 0)
+        {
+            clearInterval(this.state.id);
+            if(this.props.onComplete)
+            {
+                this.props.onComplete();
+            }
+            return;
+        }
+        else
+        {
+            if(this.props.onTick)
+            {
+                this.props.onTick(this.state.secondRemaining);
+            }
+        }
+      }
+
+      getTimeRemaining(endtime){
+        const total = Date.parse(endtime) - Date.parse(new Date());
+        const seconds = Math.floor( (total/1000) % 60 );
+        const minutes = Math.floor( (total/1000/60) % 60 );
+        const hours = Math.floor( (total/(1000*60*60)) % 24 );
+        const days = Math.floor( total/(1000*60*60*24) );
+        return {
+          secondsLeft: total,
+          days,
+          hours,
+          minutes,
+          seconds
+        };
+    }
+
+    initializeCountdown(){
+        const values = this.getTimeRemaining(this.state.endDate);
+        const id = setInterval(() => this.tick(),1000);
+        this.setState({id:id,countdown:formatValues(values),secondRemaining:values.secondsLeft});
+      }
+
+    render()
+    {
+        const {countdown} = this.state;
+        return(<div>{countdown}</div>);
+    }
+}
+
+export default Kontak

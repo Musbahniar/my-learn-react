@@ -6,7 +6,8 @@ import { Button, Form, FormGroup, Label, Alert, Tooltip } from 'reactstrap';
 // import DateTimePicker from 'react-datetime-picker';
 import './Signup.css';
 import '../../styles/react-confirm-alert.css';
-import { confirmAlert } from 'react-confirm-alert'; 
+import { confirmAlert } from 'react-confirm-alert';
+// import { nodemailer } from 'nodemailer';
 // import ReactLoading from 'react-loading';
 
 class RegisForm extends Component {
@@ -79,6 +80,7 @@ class RegisForm extends Component {
             this.pesan('Data Registrasi Sukses Tersimpan');
           }
         });
+
         // this.setState({loading: 'blank'});
     }
   }
@@ -185,11 +187,6 @@ class RegisForm extends Component {
           onChange={ this.handleChange }
           required />
         <div className="error" id="nisError" />
-      </FormGroup>
-
-      <FormGroup>
-        <Label id="tgllahirLabel"><strong>Tanggal Lahir</strong></Label>
-
       </FormGroup>
 
       <FormGroup>
