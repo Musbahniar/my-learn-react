@@ -33,7 +33,7 @@ const Routes = () => (
           <Route path="/vak" component={Vak} />
           <Route path="/cbt" component={Cbt} />
           <Route path="/tocbt" component={ToCbt} />
-          <Route path="/tryout" component={Tryout} />
+          <Route path="/tryout" component={() => <Tryout title="Isi Props" />} />
           <Route path="/dcbt/:pola/:periode" component={Cbtdetail} />
           <Route path="/kuis" component={Kuis} />
           <Route path="/presensi" component={Presensi} />

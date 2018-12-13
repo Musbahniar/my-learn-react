@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import Menu from '../../components/Header/Menu';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { GetData } from '../../services/GetData';
 import { Card, Button, CardHeader,  CardBody } from 'reactstrap';
+import MulaiTO from '../../components/cbt/Mulaito';
 
 export default class Tocbt extends Component {
-    constructor () {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             data: [],
-            redirectToReferrer: false
+            redirectToReferrer: false,
+            content: "Content from props..."
         };
     }
 
@@ -30,6 +32,11 @@ export default class Tocbt extends Component {
             let responseJson = result;
             this.setState({data: responseJson});
         });
+    }
+
+    mulaito = () => {
+        <MulaiTO contentProp = {this.state.content}/>
+        this.props.history.push('/tryout');
     }
 
 render() {
@@ -67,7 +74,7 @@ render() {
                                     <td>{datas.cKodeSoal}</td>
                                     <td>{datas.cBatasWaktu} Menit</td>
                                     <td><a href="/tryout">Mulai TO</a></td>
-                                    <td></td>
+                                    <td><Button outline color="danger" size="sm" onClick={ () => this.mulaito(datas.cKodeSoal)}>Mulai TO</Button></td>
                                 </tr>
                             )
                         })
