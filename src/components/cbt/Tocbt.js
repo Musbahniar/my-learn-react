@@ -3,7 +3,6 @@ import Menu from '../../components/Header/Menu';
 import { Redirect } from 'react-router-dom';
 import { GetData } from '../../services/GetData';
 import { Card, Button, CardHeader,  CardBody } from 'reactstrap';
-import MulaiTO from '../../components/cbt/Mulaito';
 
 export default class Tocbt extends Component {
     constructor(props) {
@@ -35,7 +34,8 @@ export default class Tocbt extends Component {
     }
 
     mulaito = () => {
-        <MulaiTO contentProp = {this.state.content}/>
+        // <MulaiTO contentProp = {this.state.content}/>
+        
         this.props.history.push('/tryout');
     }
 
