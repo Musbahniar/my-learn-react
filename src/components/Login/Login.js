@@ -5,7 +5,6 @@ import {PostData} from '../../services/PostData';
 import Header from '../../components/Header/Header';
 import '../../styles/react-confirm-alert.css';
 import { confirmAlert } from 'react-confirm-alert'; 
-import Kontak from '../../components/Kontak/Kontak';
 
 class Login extends Component {
 
@@ -119,9 +118,7 @@ class Login extends Component {
 
         <Button onClick={this.login}>Login</Button>
         <hr/>
-        <Kontak timeRemainingInSeconds={10}
- onEveryMinute={1}
- />
+
         <div className="checkbox">
           <label>
           <em><a href="/signup">Belum Registrasi</a> - <a href="/">Lupa Password</a></em>

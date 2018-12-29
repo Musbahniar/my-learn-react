@@ -21,7 +21,6 @@ import Kontak from '././components/Kontak/Kontak';
 
 import NotFound from '././components/NotFound/NotFound';
 
-
 const Routes = () => (
   <BrowserRouter >
       <Switch>
@@ -34,12 +33,12 @@ const Routes = () => (
           <Route path="/vak" component={Vak} />
           <Route path="/cbt" component={Cbt} />
           <Route path="/tocbt" component={ToCbt} />
-          <Route path="/tryout" component={() => <Tryout />} />
+          <Route path="/tryout/:kodesoal" component={() => <Tryout />} />
           <Route path="/dcbt/:pola/:periode" component={Cbtdetail} />
           <Route path="/kuis" component={Kuis} />
           <Route path="/presensi" component={Presensi} />
           <Route path="/tutor" component={Vtutor} />
-          <Route path="*" component={NotFound}/> */}
+          <Route path="*" component={NotFound}/>
       </Switch>
 
   </BrowserRouter>

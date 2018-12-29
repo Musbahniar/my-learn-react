@@ -10,7 +10,6 @@ class Cbtrow extends React.Component {
             <td>{this.props.datato.cPola}</td>
             <td>{this.props.datato.cPeriode}</td>
             <td><Link to={'/dcbt/' + this.props.datato.cPola + '/' + this.props.datato.cPeriode} >Detail</Link></td>
-
           </tr>
         );
     }

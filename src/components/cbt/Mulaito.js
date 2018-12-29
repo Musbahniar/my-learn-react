@@ -6,8 +6,8 @@ import Soal from '../../components/cbt/Soal';
 import NoSoal from '../../components/cbt/Nosoal';
 
 export default class Mulaito extends Component {
-    constructor () {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             data: [],
             jmlkolom: 5,
@@ -33,7 +33,7 @@ render() {
         <Menu />
         <div className="container">
             <br />
-            <h2 align="center">No Soal : <font color="red"><strong>5</strong></font></h2>
+            <h2 align="center">No Soal : <font color="red"><strong>{this.props.match.params.kodesoal}</strong></font></h2>
             <br />
             <div className="row">
                 <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9" align="center">
