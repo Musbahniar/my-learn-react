@@ -25,11 +25,16 @@ export default class Mulaito extends Component {
         fetch("https://raw.githubusercontent.com/algosigma/js-reactjs/master/homestays.json")
         .then(response => response.json())
         .then((data) => {
-            this.setState({
-                weatherData: data,
-            });
+            this.setState({ weatherData: data });
         })
     }
+
+    // componentDidMount() {
+    //     fetch("https://raw.githubusercontent.com/algosigma/js-reactjs/master/homestays.json")
+    //       .then(({ data: weatherData }) => {
+    //         this.setState({ weatherData });
+    //       });
+    //   }
 
     componentWillMount(){
         if(sessionStorage.getItem('userData'))
@@ -41,6 +46,7 @@ export default class Mulaito extends Component {
 
     onDayClicked(dayIndex) {
         this.setState({ selectedDate: dayIndex });
+        console.log('aa');
       }
 
 render() {
@@ -49,7 +55,7 @@ render() {
     }
 
     const { weatherData, dates, city, selectedDate } = this.state;
-
+    // const weatherData = this.state.weatherData;
     return (
     <div>
         <Menu />
@@ -60,11 +66,11 @@ render() {
             <div className="row">
                 <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9" align="center">
                     <Soal />
+                    
                 </div> 
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
                     <h6>Pilih No Soal</h6>
-                    <Nosoal days={dates} />
-
+                    <Nosoal days={dates}  onDayClicked={this.onDayClicked} />
                 <br />
                 </div>
             </div>
