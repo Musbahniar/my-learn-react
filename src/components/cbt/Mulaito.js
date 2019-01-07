@@ -4,15 +4,31 @@ import { Redirect } from 'react-router-dom';
 import { Card, Button, CardHeader,  CardBody, Table } from 'reactstrap';
 import Soal from '../../components/cbt/Soal';
 import NoSoal from '../../components/cbt/Nosoal';
+import Nosoal from '../../components/cbt/Nosoal';
+import './cbt.css';
 
 export default class Mulaito extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            jmlkolom: 5,
-            redirectToReferrer: false
+            redirectToReferrer: false,
+            weatherData: [],
+            zipcode: '',
+            city: {},
+            dates: [],
+            selectedDate: null
         };
+        this.onDayClicked = this.onDayClicked.bind(this);
+    }
+
+    componentDidMount() {
+        fetch("https://raw.githubusercontent.com/algosigma/js-reactjs/master/homestays.json")
+        .then(response => response.json())
+        .then((data) => {
+            this.setState({
+                weatherData: data,
+            });
+        })
     }
 
     componentWillMount(){
@@ -23,10 +39,16 @@ export default class Mulaito extends Component {
         }
     }
 
+    onDayClicked(dayIndex) {
+        this.setState({ selectedDate: dayIndex });
+      }
+
 render() {
     if (!this.state.redirectToReferrer) {
         return (<Redirect to={'/'}/>)
     }
+
+    const { weatherData, dates, city, selectedDate } = this.state;
 
     return (
     <div>
@@ -41,7 +63,8 @@ render() {
                 </div> 
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
                     <h6>Pilih No Soal</h6>
-                    <NoSoal />
+                    <Nosoal days={dates} />
+
                 <br />
                 </div>
             </div>
