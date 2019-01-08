@@ -3,7 +3,7 @@ import NoSoalDetail from '../../components/cbt/Nosoaldetail';
 
 
 const Nosoal = ({ dataSoal, onNoSoalClicked }) =>
-  <div className="weather-list flex-parent">
+  <div className="grid">
     {dataSoal.map((data, index) =>
       <NoSoalDetail
         key={data.cNoSoal}
