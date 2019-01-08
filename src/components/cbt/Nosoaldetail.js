@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 const onClick = (index, callback) => () => callback(index);
 
 // const Nosoaldetail = () => {
-const Nosoaldetail = ({ day, index, onDayClicked }) => {
-    //   const date = new Date(day.dt * 1000);
+const Nosoaldetail = ({ dataNoSoal, index, onNoSoalClicked }) => {
 
   return (
-    <div className="weather-list-item" onClick={onClick(index, onDayClicked)}>
-      <h2>{day.harga}</h2>
+    <div className="weather-list-item" onClick={onClick(index, onNoSoalClicked)}>
+      <h2>{dataNoSoal.cNoSoal}-{dataNoSoal.cKunci}</h2>
     </div>
   );
 };

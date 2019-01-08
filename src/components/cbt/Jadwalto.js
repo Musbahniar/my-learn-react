@@ -24,8 +24,8 @@ class Jadwalto extends React.Component {
                     <td>{datas.cPola}</td>
                     <td>{datas.cKodeSoal}</td>
                     <td>{datas.cBatasWaktu} Menit</td>
-                    <td><Link to={'/tryout/' + datas.cKodeSoal} >Mulai TO</Link></td>
-                    <td><Link to={'/tryout/' + datas.cKodeSoal} ><Button outline color="danger" size="sm">danger</Button></Link></td>
+                    <td><Link to={'/tryout/' + datas.cKodeSoal} ><Button outline color="danger" size="sm">Mulai TO</Button></Link></td>
+                    <td><Link to={'/tryout/' + datas.cKodeSoal} >View</Link></td>
                   </tr>
                   </tbody>
               );

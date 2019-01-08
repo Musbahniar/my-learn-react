@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import { Button} from 'reactstrap';
 import NoSoalDetail from '../../components/cbt/Nosoaldetail';
 
 
-const Nosoal = ({ days, onDayClicked }) =>
+const Nosoal = ({ dataSoal, onNoSoalClicked }) =>
   <div className="weather-list flex-parent">
-    {days.map((day, index) =>
+    {dataSoal.map((data, index) =>
       <NoSoalDetail
-        key={day.id}
-        day={day}
+        key={data.cNoSoal}
+        dataNoSoal={data}
         index={index}
-        onDayClicked={onDayClicked}
+        onNoSoalClicked={onNoSoalClicked}
       />
     )}
   </div>
