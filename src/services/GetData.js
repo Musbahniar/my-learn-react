@@ -1,8 +1,8 @@
 export function GetData(type) {
     // let BaseURL = 'http://localhost/restAPI/restku/';
     // let BaseURL = 'http://localhost/GOLearn/server/';
-    // let BaseURL = 'http://localhost/Ganesha-Operation/GOLearn-v2/fromServer/server/';
-    let BaseURL = 'http://localhost/Ganesha-Operation/GOLearn-v2/server/';
+    let BaseURL = 'http://localhost/Ganesha-Operation/GOLearn-v2/fromServer/server/';
+    // let BaseURL = 'http://localhost/Ganesha-Operation/GOLearn-v2/server/';
     // let BaseURL = 'http://go-learn.web.id/server/';
 
     let params = '';

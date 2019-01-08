@@ -29,13 +29,6 @@ export default class Mulaito extends Component {
         })
     }
 
-    // componentDidMount() {
-    //     fetch("https://raw.githubusercontent.com/algosigma/js-reactjs/master/homestays.json")
-    //       .then(({ data: weatherData }) => {
-    //         this.setState({ weatherData });
-    //       });
-    //   }
-
     componentWillMount(){
         if(sessionStorage.getItem('userData'))
         {
@@ -54,6 +47,7 @@ render() {
         return (<Redirect to={'/'}/>)
     }
 
+
     const { weatherData, dates, city, selectedDate } = this.state;
     // const weatherData = this.state.weatherData;
     return (
@@ -65,12 +59,12 @@ render() {
             <br />
             <div className="row">
                 <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9" align="center">
-                    <Soal />
-                    
+                    {/* <Soal /> */}
+                    {selectedDate !== null && <Soal day={dates[selectedDate]} city={city} />}
                 </div> 
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
                     <h6>Pilih No Soal</h6>
-                    <Nosoal days={dates}  onDayClicked={this.onDayClicked} />
+                    <Nosoal days={weatherData}  onDayClicked={this.onDayClicked} />
                 <br />
                 </div>
             </div>
