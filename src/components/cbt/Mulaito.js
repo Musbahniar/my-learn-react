@@ -39,7 +39,7 @@ export default class Mulaito extends Component {
 
     onDayClicked(dayIndex) {
         this.setState({ selectedDate: dayIndex });
-        console.log('aa');
+        console.log(this.state.selectedDate);
       }
 
 render() {
@@ -60,7 +60,7 @@ render() {
             <div className="row">
                 <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9" align="center">
                     {/* <Soal /> */}
-                    {selectedDate !== null && <Soal day={dates[selectedDate]} city={city} />}
+                    {selectedDate !== null && <Soal day={this.state.selectedDate} city="aku" />}
                 </div> 
                 <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="center">
                     <h6>Pilih No Soal</h6>
